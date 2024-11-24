@@ -1,0 +1,522 @@
+body {
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    color: black;
+    background-color: #f4f4f4;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
+.headerContainer{
+    display: flex;
+    width:100%;
+    margin:20px auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+.linkList{
+    display: flex;
+    width: 100%;
+    margin:5px auto;
+    justify-content: space-evenly;
+}
+.navlink{
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    padding:10px;
+    text-decoration: none;
+    color:black;
+    text-wrap: nowrap;
+    width:33%;
+    text-align: center;
+    border:1px solid green;
+
+}
+.navlink:hover{
+    background-color: green;
+    color:#f4f4f4;
+
+}
+main{
+    margin: 0;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+.container {
+    background-color: green;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+.header{
+    text-align: center;
+    color: black;
+}
+form {
+    display: block;
+
+}
+form p{
+    display: block;
+
+}
+form p label{
+    text-align: center;
+    font-size: 18px;
+    padding:5px;
+    display: inline;
+
+}
+form p input{
+    padding:0;
+    border: none;
+    outline: none;
+    display: inline;
+    background-color: green;
+    border-bottom: 2px solid black;
+    
+
+}
+form p input:focus{
+
+    border-bottom-color: black;
+}
+form label{
+    display: block;
+    text-align: left;
+    font-size:14px;
+    text-transform: capitalize;
+    margin :10px auto;
+}
+
+.submitButton {
+    background-color: black;
+    color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.submitButton:hover {
+    background-color: #f4f4f4;
+    color:green;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    padding: 10px;
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #f4f4f4;;
+    text-wrap: nowrap;
+}
+li ul li {
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-bottom: none;
+    font-size: 16px;
+    color: #f4f4f4;;
+    text-align: center;
+}
+li ul li ul{
+    border-bottom: 1px solid #f4f4f4;
+}
+.supplyHeader{
+    text-align: center;
+    color:black;
+}
+li ul li ul li {
+    padding: 5px 20px;
+    font-size: 14px;
+    text-align: center;
+    color:black;
+}
+.center{
+    text-align: center;
+}
+
+.itemContainer::-webkit-scrollbar, .supplyContainer::-webkit-scrollbar, .invoicelist::-webkit-scrollbar { 
+    width: 20px;
+    background-color:green;
+    color:black;
+ }
+  
+  /* Track */
+  .itemContainer::-webkit-scrollbar-track, .supplyContainer::-webkit-scrollbar-track, .invoicelist::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px green;
+    border-radius: 20px;
+  }
+  
+  /* Handle */
+  .itemContainer::-webkit-scrollbar-thumb, .supplyContainer::-webkit-scrollbar-thumb, .invoicelist::-webkit-scrollbar-thumb {
+    background: #f4f4f4;
+    border-radius: 20px;
+  }
+
+  .itemContainer{
+    display: block;
+    height:200px;
+    overflow-y: scroll;
+    
+    scrollbar-color: black;
+}
+
+.supplyContainer{
+    display: block;
+    height:200px;
+    overflow-y: scroll;
+}
+.invoicelist{
+    display: block;
+    height:350px;
+    overflow-y: scroll;
+
+}
+.login-logout{
+    display: flex;
+    justify-content: center;
+    margin:20px auto;
+}
+.logoutButton{
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding:10px;
+    font-size: 16px;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-decoration: none;
+    color:red;
+    font-weight: bold;
+    text-wrap: nowrap;
+    border:1px solid red;
+}
+
+.logoutButton:hover{
+    background-color: red;
+    color: #f4f4f4;
+
+}
+.loginButton{
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding:10px;
+    font-size: 16px;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-decoration: none;
+    color:red;
+    font-weight: bold;
+    text-wrap: nowrap;
+    border:1px solid red;
+}
+
+.loginButton:hover{
+    background-color: red;
+    color: #f4f4f4;
+
+}
+.signupbody {
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    color: #333;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:100%;
+    margin: 0;
+}
+.signup-container {
+    display: block;
+    background-color: green;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height:auto;
+}
+.signup-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+.signup-container form .form-group {
+    margin-bottom: 15px;
+}
+.signup-container form .form-group label {
+    margin-bottom: 5px;
+    display: block;
+}
+.signup-container form .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+.signup-container form .submit-button {
+    padding: 10px;
+    background-color: white;
+    color: green;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+.signup-container form .submit-button:hover {
+    background-color: black;
+}
+.login-container {
+    display: block;
+    background-color: green;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height:auto;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container form .form-group {
+    margin-bottom: 15px;
+}
+.login-container form .form-group label {
+    margin-bottom: 5px;
+    display: block;
+}
+.login-container form .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+.login-container form .submit-button {
+    padding: 10px;
+    background-color: white;
+    color: green;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.login-container form .submit-button:hover {
+    background-color: black;
+}
+
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    .navlink{
+        font-size:14px;
+        font-weight: bold;
+    }
+    .logoutButton{
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    li {
+        font-size: 16px;
+        padding:5px 0;
+    }
+    li ul li, li ul li ul li {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+}
+@media(max-width:475px){
+    .navlink{
+        font-size:12px;
+    }
+    .logoutButton{
+        font-size: 12px;
+    }
+    .container {
+        background-color: green;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 375px;
+        text-align: center;
+    }
+    li {
+        font-size: 18px;
+        text-wrap: wrap;
+    }
+    li ul li {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-bottom: none;
+        font-size: 16px;
+        color: #f4f4f4;;
+        text-align: center;
+    }
+    li ul li ul li {
+        padding: 5px 20px;
+        font-size: 14px;
+        text-align: center;
+        color:black;
+    }
+    form p label{
+        font-size: 16px;
+        padding:5px;
+    
+    }
+    .checkboxes{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+
+}
+@media(max-width:425px){
+    .container {
+        background-color: green;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+    }
+    li {
+        font-size: 18px;
+        text-wrap: wrap;
+    }
+    li ul li {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-bottom: none;
+        font-size: 14px;
+        color: #f4f4f4;;
+        text-align: center;
+    }
+    li ul li ul li {
+        padding: 5px 20px;
+        font-size: 12px;
+        text-align: center;
+        color:black;
+    }
+    form p label{
+        font-size: 16px;
+        padding:5px;
+    
+    }
+    .checkboxes{
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+}
+@media(max-width:375px){
+    .navlink{
+        font-size:10px;
+        padding:5px;
+    }
+    .logoutButton{
+        font-size: 10px;
+        padding:5px;
+    }
+    .container {
+        background-color: green;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+    }
+    li {
+        font-size: 18px;
+        text-wrap: wrap;
+    }
+    li ul li {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-bottom: none;
+        font-size: 14px;
+        color: #f4f4f4;;
+        text-align: center;
+    }
+    li ul li ul li {
+        padding: 5px 20px;
+        font-size: 12px;
+        text-align: center;
+        color:black;
+    }
+    form p label{
+        font-size: 16px;
+        padding:5px;
+    
+    }
+    .checkboxes{
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+}
+@media(max-width:320px){
+    .container {
+        background-color: green;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 250px;
+        width: 100%;
+        text-align: center;
+    }
+    li {
+        font-size: 18px;
+        text-wrap: wrap;
+    }
+    li ul li {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-bottom: none;
+        font-size: 12px;
+        color: #f4f4f4;;
+        text-align: center;
+    }
+    li ul li ul li {
+        padding: 5px 20px;
+        font-size: 10px;
+        text-align: center;
+        color:black;
+    }
+    form p label{
+        font-size: 14px;
+        padding:5px;
+    
+    }
+    .checkboxes{
+        font-size: 8px;
+        font-weight: bold;
+    }
+    
+    
+
+}

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="header">Create Invoice </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ invoice_form.as_p }}
+        <h3>Select Items:</h3>
+        <div class="itemContainer">
+            {% for item in items %}
+            <label>
+                <input type="checkbox" name="item" value="{{ item.id }}">
+                {{ item.item_name }}
+            </label>
+            {% endfor %}
+        </div>
+        <button class="submitButton" type="submit">Create Invoice</button>
+    </form>
+</div>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Create Invoice Item</title>
+   <style>
+        body {
+            font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            background-color: #51CD0E;
+            width: 100%;
+        }
+        .header {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        form p {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            
+        }
+        form p label{
+            font-size: 24px;
+            display: inline-block
+        }
+        form p input{
+            padding:5px;
+            display: inline-block;
+        }
+        h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+        label {
+            margin: 5px 0;
+            display: block;
+            text-align: left;
+        }
+        .submitButton {
+            background-color: #000;
+            color: #51CD0E;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submitButton:hover {
+            color: white;
+        }
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .header {
+                font-size: 20px;
+            }
+            .submitButton {
+                padding: 8px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+            label {
+                font-size: 14px;
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Create Invoice </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ invoice_form.as_p }}
+            <h3>Select Items:</h3>
+                {% for item in items %}
+                <label>
+                    <input type="checkbox" name="item" value="{{ item.id }}">
+                    {{ item.item_name }}
+                </label>
+                {% endfor %}
+            <button class="submitButton" type="submit">Create Invoice Item</button>
+        </form>
+    </div>
+</body>
+</html>  -->
