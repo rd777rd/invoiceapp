@@ -16,7 +16,7 @@
                                 <h3 class="supplyHeader">Supplies for {{item.item_name}}:</h3>
                                 {% for supply in item.supplies.all %}
                                     <li class ="supply">
-                                        {{ supply.name }} - {{ supply.quantity }} @ ${{ supply.price }} = ${{ supply.total_price }}
+                                        {{ supply.name }}: {{ supply.quantity }} @ ${{ supply.price }}
                                         
                                     </li>
                                 {% endfor %}
