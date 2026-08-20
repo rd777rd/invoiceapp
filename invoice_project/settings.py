@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'invoices.context_processors.branding',
             ],
         },
     },
@@ -166,9 +167,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
-EMAIL_HOST = 'smtp.gmail.com' 
-EMAIL_PORT = 587 
-EMAIL_USE_TLS = True 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') 
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') 
+# Brevo (https://www.brevo.com) transactional email over HTTPS -- replaces
+# the previous raw SMTP setup, which Render's free tier silently/fatally
+# blocks (outbound SMTP is not allowed on that plan). See invoices/email_service.py.
+# Free tier: single-sender verification only (click a link Brevo emails
+# you) -- no DNS/domain ownership needed, unlike Resend/SES/Mailgun-style
+# domain verification.
+BREVO_API_KEY = os.environ.get('BREVO_API_KEY', '')
+BREVO_SENDER_EMAIL = os.environ.get('BREVO_SENDER_EMAIL', '')
+
+# Branding -- the only per-client customization this app currently has.
+# Used in email subjects/bodies (email_service.py) and available to every
+# template via the branding context processor (see invoices/context_processors.py).
+COMPANY_NAME = os.environ.get('COMPANY_NAME', 'Business Invoice')

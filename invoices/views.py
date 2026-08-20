@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
@@ -5,10 +6,10 @@ from django.views.generic import ListView, CreateView
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from io import BytesIO
 from xhtml2pdf import pisa
+from . import email_service
 from .models import Invoice, InvoiceItem, Supply
 from .forms import InvoiceForm, InvoiceItemForm, SupplyForm, SignUpForm
 from django.shortcuts import redirect
@@ -93,8 +94,11 @@ class CreateInvoiceItemView(LoginRequiredMixin, View):
 
 
 def generate_invoice_pdf(invoice):
+    # No `request` is passed to render() here, so template context
+    # processors (including the branding one -- see context_processors.py)
+    # never run. company_name has to be supplied explicitly.
     template = get_template('pdf_invoice_template.html')
-    html = template.render({'invoice': invoice})
+    html = template.render({'invoice': invoice, 'company_name': settings.COMPANY_NAME})
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode('UTF-8')), result)
     if not pdf.err:
@@ -103,16 +107,16 @@ def generate_invoice_pdf(invoice):
 
 
 def send_invoice_email(invoice):
+    """Best-effort: generates the PDF and emails it via Brevo (see
+    email_service.py). Never raises -- a failed/unconfigured email send
+    must not break invoice creation, which already saved successfully by
+    the time this is called. (The previous SMTP version called
+    EmailMessage.send() with no error handling at all, so an SMTP failure
+    -- guaranteed on Render's free tier, which blocks outbound SMTP --
+    could 500 the entire "create invoice" request even though the invoice
+    itself had already been saved to the database.)"""
     pdf = generate_invoice_pdf(invoice)
-    if pdf:
-        email = EmailMessage(
-            f"Invoice {invoice.id}",
-            f"Dear {invoice.client_name}, Please find your invoice details below.",
-            'testinvoice465@gmail.com',
-            [invoice.client_email]
-        )
-        email.attach(f"invoice_{invoice.id}.pdf", pdf, 'application/pdf')
-        email.send()
+    email_service.send_invoice_email(invoice, pdf)
 
 
 def signup(request):
