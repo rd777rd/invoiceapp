@@ -1,0 +1,23 @@
+# Secrets -- never commit real values. See .env.example for the keys this
+# app expects; copy it to .env locally and fill in real values there.
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# Django
+staticfiles/
+media/
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
